@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>심리테스트 시작</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #2C2B2B;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .start-container {
+      width: 668px;
+      height: 789px;
+      background: url('your-image.jpg') no-repeat center center/cover;
+      border-radius: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .start-box {
+      width: 652px;
+      height: 769px;
+      background-color: white;
+      border-radius: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 40px;
+    }
+    .start-title {
+      width: 487px;
+      height: 400px;
+      margin-left: 58px;
+      background: url('title-image.jpg') no-repeat center center/contain;
+    }
+    .start-text {
+      font-size: 48px;
+      font-weight: bold;
+      margin-top: 18px;
+    }
+    .start-button {
+      width: 225px;
+      height: 77px;
+      background-color: #A61A28;
+      border-radius: 20px;
+      font-size: 48px;
+      font-weight: bold;
+      color: #F5EC8C;
+      border: none;
+      cursor: pointer;
+      margin-top: 51px;
+    }
+    .start-button:hover {
+      background-color: #8F151F;
+    }
+  </style>
+</head>
+<body>
+  <div class="start-container">
+    <div class="start-box">
+      <div class="start-title"></div>
+      <div class="start-text">-최종선별 편-</div>
+      <button class="start-button" id="startBtn">시작하기</button>
+    </div>
+  </div>
+  
+  <script>
+    document.getElementById("startBtn").addEventListener("click", () => {
+      window.location.href = "question.html";
+    });
+  </script>
+</body>
+</html>
