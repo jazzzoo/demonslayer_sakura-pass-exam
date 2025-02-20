@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>퀘스트 진행</title>
+  <style>
+    html {
+      font-size: 16px;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #2C2B2B;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .quest-container {
+      width: 42.375rem; /* 688px */
+      height: 60.125rem; /* 974px */
+      background: url('img/Rectangle1.png') no-repeat center center/cover;
+      border-radius: 1.875rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 0.625rem 1.25rem rgba(0, 0, 0, 0.5);
+      padding: 0.625rem;
+    }
+    .quest-box {
+      width: 40.75rem; /* 652px */
+      height: 58.5rem; /* 936px */
+      background-color: white;
+      border-radius: 1.875rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.25rem;
+      box-shadow: 0px 0.625rem 1.25rem rgba(0, 0, 0, 0.4);
+    }
+    .quest-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .quest-header button {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .quest-image {
+      width: 40.75rem;
+      height: 24rem;
+      background: url('your-quest-scene.jpg') no-repeat center center/contain;
+      margin-top: 0.375rem;
+    }
+    .quest-question {
+      font-size: 1.25rem;
+      text-align: center;
+      margin: 1rem 0;
+    }
+    .quest-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+    }
+    .quest-options button {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+      border-radius: 0.625rem;
+      border: 1px solid #A61A28;
+      background-color: #F5EC8C;
+      cursor: pointer;
+    }
+    .quest-options button:hover {
+      background-color: #E5D87C;
+    }
+    .next-button {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      font-size: 1.5rem;
+      border-radius: 0.625rem;
+      background-color: #A61A28;
+      color: #F5EC8C;
+      border: none;
+      cursor: pointer;
+    }
+    .next-button:hover {
+      background-color: #8F151F;
+    }
+  </style>
+</head>
+<body>
+  <div class="quest-container">
+    <div class="quest-box">
+      <div class="quest-header">
+        <button onclick="goBack()">◀ 이전</button>
+        <span id="progress">1/15</span>
+        <button onclick="toggleLanguageModal()">🌐 언어</button>
+      </div>
+      <div class="quest-image"></div>
+      <div class="quest-question" id="question">이곳에 문제가 표시됩니다.</div>
+      <div class="quest-options" id="options">
+        <button onclick="selectOption(this)">선택지 1</button>
+        <button onclick="selectOption(this)">선택지 2</button>
+        <button onclick="selectOption(this)">선택지 3</button>
+        <button onclick="selectOption(this)">선택지 4</button>
+        <button onclick="selectOption(this)">선택지 5</button>
+      </div>
+      <button class="next-button" onclick="nextQuestion()">다음 문제 ▶</button>
+    </div>
+  </div>
+
+  <script>
+    let currentQuestion = 0;
+    const questions = [
+      { text: "첫 번째 문제입니다.", options: ["A", "B", "C", "D", "E"] },
+      { text: "두 번째 문제입니다.", options: ["A", "B", "C", "D", "E"] },
+      { text: "세 번째 문제입니다.", options: ["A", "B", "C", "D", "E"] },
+      { text: "네 번째 문제입니다.", options: ["A", "B", "C", "D", "E"] },
+      { text: "다섯 번째 문제입니다.", options: ["A", "B", "C", "D", "E"] },
+      // 여기에 15개의 문제 추가
+    ];
+
+    function updateQuestion() {
+      document.getElementById("progress").textContent = `${currentQuestion + 1}/15`;
+      document.getElementById("question").textContent = questions[currentQuestion].text;
+      const optionsContainer = document.getElementById("options");
+      optionsContainer.innerHTML = "";
+      questions[currentQuestion].options.forEach(option => {
+        const button = document.createElement("button");
+        button.textContent = option;
+        button.onclick = () => selectOption(button);
+        optionsContainer.appendChild(button);
+      });
+    }
+
+    function selectOption(button) {
+      document.querySelector(".next-button").style.display = "block";
+    }
+
+    function nextQuestion() {
+      if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        updateQuestion();
+        document.querySelector(".next-button").style.display = "none";
+      } else {
+        alert("모든 문제가 완료되었습니다!");
+      }
+    }
+
+    updateQuestion();
+  </script>
+</body>
+</html>
