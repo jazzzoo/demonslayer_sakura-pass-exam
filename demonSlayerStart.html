@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>심리테스트 시작</title>
   <style>
+    html {
+      font-size: 16px;
+    }
     body {
       margin: 0;
       padding: 0;
@@ -13,60 +16,88 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
     }
     .start-container {
-      width: 668px;
-      height: 789px;
+      width: 42rem; /* 678px */
+      height: 48rem; /* 778px */
       background: url('img/Rectangle1.png') no-repeat center center/cover;
-      border-radius: 30px;
+      border-radius: 1.875rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* 그림자 효과 추가 */
+      box-shadow: 0px 0.625rem 1.25rem rgba(0, 0, 0, 0.5);
+      padding: 0.625rem; /* 상하좌우 여백 조정 */
     }
     .start-box {
-      width: 652px;
-      height: 769px; /* 컨테이너 크기보다 작게 조정 */
+      width: 40rem; /* 668px */
+      height: 46rem; /* 758px */
       background-color: white;
-      border-radius: 30px;
+      border-radius: 1.875rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 0; /* 내부 패딩 조정 */
-      position: relative;
-      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4); /* 그림자 효과 추가 */
+      padding: 1.25rem;
+      box-shadow: 0px 0.625rem 1.25rem rgba(0, 0, 0, 0.4);
     }
     .start-title {
-      width: 487px;
-      height: 400px;
+      width: 75%;
+      max-width: 30.43rem;
+      height: 15rem; /* 명확한 높이 설정 */
       background: url('img/title.png') no-repeat center center/contain;
-      position: relative;
-      top: 0;
-      margin-bottom: 20px; /* 간격 조정 */
+      margin-bottom: 1.25rem;
     }
     .start-text {
-      font-size: 48px;
+      font-size: 3rem;
       font-weight: bold;
-      margin: 10px 0; /* 간격 줄이기 */
+      margin: 0.625rem 0;
     }
     .start-button {
-      width: 225px;
-      height: 77px;
+      width: 14rem;
+      height: 4.8rem;
       background-color: #A61A28;
-      border-radius: 20px;
-      font-size: 48px;
+      border-radius: 1.25rem;
+      font-size: 3rem;
       font-weight: bold;
       color: #F5EC8C;
       border: none;
       cursor: pointer;
-      margin-top: 10px; /* 버튼 위치 조정 */
-      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3); /* 버튼 그림자 효과 추가 */
+      margin-top: 0.625rem;
+      box-shadow: 0px 0.3125rem 0.625rem rgba(0, 0, 0, 0.3);
     }
     .start-button:hover {
       background-color: #8F151F;
-      box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.5); /* 버튼 호버 시 더 강한 그림자 */
+      box-shadow: 0px 0.4375rem 0.9375rem rgba(0, 0, 0, 0.5);
+    }
+    
+    /* 🔹 모바일 반응형 조정 */
+    @media (max-width: 768px) {
+      .start-container {
+        width: 90%;
+        height: auto;
+        min-height: 48rem;
+        padding: 0.5rem;
+      }
+      .start-box {
+        width: 95%;
+        height: auto;
+        min-height: 46rem;
+      }
+      .start-title {
+        width: 170%; /* 2배 크기 */
+        max-width: 50rem;
+        height: 20rem; /* 모바일에서도 명확한 높이 설정 */
+        max-height: 40rem;
+      }
+      .start-text {
+        font-size: 2rem;
+      }
+      .start-button {
+        width: 10rem;
+        height: 4rem;
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
@@ -85,5 +116,4 @@
     });
   </script>
 </body>
-</html>
 </html>
